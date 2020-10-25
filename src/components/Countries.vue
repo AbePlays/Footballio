@@ -1,10 +1,12 @@
 <template>
-  <card
-    v-for="country in countries"
-    :key="country.code"
-    :imageUrl="country.flag"
-    :name="country.name"
-  ></card>
+  <section>
+    <card
+      v-for="country in countries"
+      :key="country.code"
+      :imageUrl="country.flag"
+      :name="country.name"
+    ></card>
+  </section>
 </template>
 
 <script>
@@ -24,5 +26,12 @@ export default {
 };
 </script>
 
-<style lang="sass" scoped>
+<style lang="scss" scoped>
+section {
+  max-width: 80rem;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: center;
+}
 </style>
