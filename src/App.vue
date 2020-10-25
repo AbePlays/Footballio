@@ -1,6 +1,13 @@
 <template>
-  <h1>Hello Vue</h1>
+  <router-view></router-view>
 </template>
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+  font-size: 16px;
+}
 </style>
