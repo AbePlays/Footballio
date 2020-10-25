@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Signin from "../components/auth/Signin.vue";
+import Auth from "../components/auth/Auth.vue";
 
 const routes = [
   {
@@ -8,7 +8,7 @@ const routes = [
   },
   {
     path: "/auth",
-    component: Signin,
+    component: Auth,
   },
 ];
 

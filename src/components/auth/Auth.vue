@@ -1,14 +1,20 @@
 <template>
   <section>
     <div class="left">
-      <h1>Welcome Back,</h1>
-      <p>Log in to continue</p>
+      <h1 v-if="isLoginForm">Welcome Back,</h1>
+      <h1 v-else>Create Your Account</h1>
+      <p v-if="isLoginForm">Log in to continue</p>
+      <p v-else>Sign up and get started</p>
       <img src="../../assets/Signin.png" alt="logo" />
     </div>
     <div class="right">
       <div class="form">
-        <h1>Log in</h1>
+        <h1>{{ title }}</h1>
         <form>
+          <div class="form-control" v-if="!isLoginForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" placeholder="John Doe" />
+          </div>
           <div class="form-control">
             <label for="email">Email</label>
             <input type="email" id="email" placeholder="example@example.com" />
@@ -21,19 +27,49 @@
               placeholder="Atleast 6 characters long"
             />
           </div>
+          <div class="form-control" v-if="!isLoginForm">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              id="confirmPassword"
+              placeholder="Atleast 6 characters long"
+            />
+          </div>
           <a href="#">Forgot Password?</a>
 
-          <button type="submit">Log in</button>
+          <button type="submit">{{ title }}</button>
         </form>
 
-        <p>Don't have an account?<a href="#"> Sign up</a></p>
+        <p v-if="isLoginForm">
+          Don't have an account?<a href="#" @click="switchAuth"> Sign up</a>
+        </p>
+        <p v-else>
+          Already have an account?<a href="#" @click="switchAuth"> Log in</a>
+        </p>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      isLoginForm: true,
+      title: "Log in"
+    };
+  },
+  methods: {
+    switchAuth() {
+      this.isLoginForm = !this.isLoginForm;
+      if (this.isLoginForm) {
+        this.title = "Log in";
+      } else {
+        this.title = "Sign up";
+      }
+    }
+  }
+};
 </script>
 
 <style lang="scss" scoped>
@@ -118,6 +154,10 @@ section {
         &:hover {
           background-color: #ccc;
         }
+      }
+
+      p {
+        text-align: center;
       }
     }
   }
