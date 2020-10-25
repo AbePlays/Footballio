@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Auth from "../components/auth/Auth.vue";
+import Countries from "../components/Countries.vue";
 
 const routes = [
   {
@@ -9,6 +10,10 @@ const routes = [
   {
     path: "/auth",
     component: Auth,
+  },
+  {
+    path: "/countries",
+    component: Countries,
   },
 ];
 
