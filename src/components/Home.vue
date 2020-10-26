@@ -1,18 +1,18 @@
 <template>
   <section>
     <the-header></the-header>
-    <standing></standing>
+    <scorer></scorer>
   </section>
 </template>
 
 <script>
 import TheHeader from "./ui/Header.vue";
-import Standing from "./ui/Standing.vue";
+import Scorer from "./Scorer.vue";
 
 export default {
   components: {
     TheHeader,
-    Standing
+    Scorer
   }
 };
 </script>
