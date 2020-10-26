@@ -1,4 +1,6 @@
 <template>
+  <h1>Select a country</h1>
+
   <section>
     <card
       v-for="country in countries"
@@ -33,6 +35,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h1 {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+
 section {
   max-width: 80rem;
   display: flex;

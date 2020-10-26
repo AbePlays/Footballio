@@ -1,4 +1,5 @@
 <template>
+  <h1>Select a league</h1>
   <section>
     <card
       v-for="competetion in competetions"
@@ -34,6 +35,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+h1 {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 2rem;
+}
+
 section {
   display: flex;
   flex-wrap: wrap;

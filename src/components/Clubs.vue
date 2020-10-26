@@ -7,6 +7,7 @@
       :key="club.id"
       :imageUrl="club.crestUrl"
       :name="club.name"
+      @click="clickHandler(club.id)"
     ></card>
   </section>
 </template>
@@ -36,24 +37,24 @@ export default {
         }
       }
     );
-
     const data = await res.json();
-
     console.log(data);
-
     data.teams.forEach(team => {
-      console.log(team);
       var club = {
         id: team.id,
         name: team.name,
         crestUrl: team.crestUrl
       };
-
       this.clubs.push(club);
     });
-
     this.isLoading = false;
     console.log(this.clubs);
+  },
+  methods: {
+    clickHandler(id) {
+      console.log("Inside clubs", id);
+      this.$router.push(`/club/${id}`);
+    }
   }
 };
 </script>

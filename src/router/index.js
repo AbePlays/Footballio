@@ -4,6 +4,7 @@ import Countries from "../components/Countries.vue";
 import Competetions from "../components/Competetions.vue";
 import Clubs from "../components/Clubs.vue";
 import Home from "../components/Home.vue";
+import ClubDetails from "../components/ui/ClubDetails.vue";
 
 const routes = [
   {
@@ -26,6 +27,11 @@ const routes = [
   {
     path: "/competetion/:id",
     component: Clubs,
+    props: true,
+  },
+  {
+    path: "/club/:id",
+    component: ClubDetails,
     props: true,
   },
 ];

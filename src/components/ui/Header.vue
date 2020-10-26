@@ -5,9 +5,9 @@
     </div>
     <div class="links">
       <ul>
-        <li>Leagues</li>
-        <li>Contact Us</li>
-        <li>Login</li>
+        <li><router-link to="/countries">League</router-link></li>
+        <li><router-link to="/">Contact Us</router-link></li>
+        <li><router-link to="/auth">Account</router-link></li>
       </ul>
     </div>
   </nav>
@@ -32,6 +32,11 @@ nav {
 
     li {
       list-style: none;
+
+      a {
+        text-decoration: none;
+        color: black;
+      }
     }
   }
 }
