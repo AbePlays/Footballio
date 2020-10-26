@@ -3,11 +3,12 @@ import Auth from "../components/auth/Auth.vue";
 import Countries from "../components/Countries.vue";
 import Competetions from "../components/Competetions.vue";
 import Clubs from "../components/Clubs.vue";
+import Home from "../components/Home.vue";
 
 const routes = [
   {
     path: "/",
-    redirect: "/auth",
+    component: Home,
   },
   {
     path: "/auth",

@@ -13,7 +13,7 @@ export default {
 
 <style lang="scss" scoped>
 .card {
-  width: 14rem;
+  width: 12rem;
   box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
   border-radius: 5px;
   margin: 3rem 5rem;
@@ -40,6 +40,7 @@ export default {
     padding: 1rem;
     padding-bottom: 0;
     text-align: center;
+    word-wrap: break-word;
   }
 }
 </style>
