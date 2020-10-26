@@ -1,24 +1,18 @@
 <template>
   <section>
     <the-header></the-header>
-    <standing></standing>
-    <news></news>
-    <fixture></fixture>
+    <fixtures></fixtures>
   </section>
 </template>
 
 <script>
 import TheHeader from "./ui/Header.vue";
-import Standing from "./ui/Standing.vue";
-import News from "./ui/News.vue";
-import Fixture from "./ui/Fixture.vue";
+import Fixtures from "./Fixtures.vue";
 
 export default {
   components: {
     TheHeader,
-    Standing,
-    News,
-    Fixture
+    Fixtures
   }
 };
 </script>
