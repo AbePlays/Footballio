@@ -1,9 +1,6 @@
 <template>
-  <section>
-    <div class="header">
-      <img src="" alt="logo" />
-      <h1>Name of the league</h1>
-    </div>
+  <section v-if="!isLoading">
+    <h1>Standings</h1>
 
     <div class="info">
       <div class="left">
@@ -19,10 +16,11 @@
       </div>
     </div>
 
-    <div class="data" v-for="club in clubs" :key="club.id">
+    <div class="data" v-for="(club, index) in clubs" :key="club.id">
       <div class="left">
-        <img :src="club.crestUrl" alt="logo" />
-        <h1>{{ club.name }}</h1>
+        <p>{{ index + 1 }}</p>
+        <img :src="club.team.crestUrl" alt="logo" />
+        <h1>{{ club.team.name }}</h1>
       </div>
 
       <div class="right">
@@ -35,77 +33,39 @@
       </div>
     </div>
   </section>
+  <h1 v-else>Loading...</h1>
 </template>
 
 <script>
 export default {
   data() {
     return {
-      clubs: [
-        {
-          id: 62,
-          name: "Everton FC",
-          crestUrl: "https://crests.football-data.org/62.svg",
-          playedGames: 6,
-          won: 4,
-          draw: 1,
-          lost: 1,
-          points: 13,
-          goalsFor: 14,
-          goalsAgainst: 9,
-          goalDifference: 5
-        },
-        {
-          id: 64,
-          name: "Liverpool FC",
-          crestUrl: "https://crests.football-data.org/64.svg",
-          playedGames: 6,
-          form: "W,D,L,W,W",
-          won: 4,
-          draw: 1,
-          lost: 1,
-          points: 13,
-          goalsFor: 15,
-          goalsAgainst: 14,
-          goalDifference: 1
-        },
-        {
-          id: 58,
-          name: "Aston Villa FC",
-          crestUrl: "https://crests.football-data.org/58.svg",
-          playedGames: 5,
-          form: "L,W,W,W,W",
-          won: 4,
-          draw: 0,
-          lost: 1,
-          points: 12,
-          goalsFor: 12,
-          goalsAgainst: 5,
-          goalDifference: 7
-        },
-        {
-          id: 338,
-          name: "Leicester City FC",
-          crestUrl: "https://crests.football-data.org/338.svg",
-          playedGames: 6,
-          form: "W,L,L,W,W",
-          won: 4,
-          draw: 0,
-          lost: 2,
-          points: 12,
-          goalsFor: 13,
-          goalsAgainst: 8,
-          goalDifference: 5
-        }
-      ]
+      clubs: [],
+      isLoading: true
     };
+  },
+  async mounted() {
+    const res = await fetch(
+      `http://api.football-data.org/v2/competitions/2021/standings`,
+      {
+        method: "GET",
+        headers: {
+          "X-Auth-Token": process.env.VUE_APP_KEY
+        }
+      }
+    );
+
+    const data = await res.json();
+    this.clubs = data.standings[0].table;
+    this.isLoading = false;
   }
 };
 </script>
 
 <style lang="scss" scoped>
 section {
-  width: 50rem;
+  max-width: 90%;
+  margin: 0 auto;
   border: 1px solid #aaa;
   padding: 1rem;
 
@@ -133,6 +93,11 @@ section {
     display: flex;
     justify-content: space-between;
     color: #aaa;
+    margin-top: 1rem;
+
+    .left {
+      margin-left: 1rem;
+    }
 
     .right {
       display: flex;
@@ -144,13 +109,14 @@ section {
     padding-top: 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: flex-start;
 
     .left {
       display: flex;
 
       img {
         width: 1rem;
-        margin-right: 1rem;
+        margin: 0 1rem;
       }
     }
 

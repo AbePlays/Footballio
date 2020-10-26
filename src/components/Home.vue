@@ -1,18 +1,18 @@
 <template>
   <section>
     <the-header></the-header>
-    <fixtures></fixtures>
+    <standing></standing>
   </section>
 </template>
 
 <script>
 import TheHeader from "./ui/Header.vue";
-import Fixtures from "./Fixtures.vue";
+import Standing from "./ui/Standing.vue";
 
 export default {
   components: {
     TheHeader,
-    Fixtures
+    Standing
   }
 };
 </script>
