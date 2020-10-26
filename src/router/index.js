@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import Auth from "../components/auth/Auth.vue";
 import Countries from "../components/Countries.vue";
 import Competetions from "../components/Competetions.vue";
+import Clubs from "../components/Clubs.vue";
 
 const routes = [
   {
@@ -19,6 +20,11 @@ const routes = [
   {
     path: "/countries/:code",
     component: Competetions,
+    props: true,
+  },
+  {
+    path: "/competetion/:id",
+    component: Clubs,
     props: true,
   },
 ];

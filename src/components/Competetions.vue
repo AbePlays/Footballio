@@ -5,6 +5,7 @@
       :key="competetion.id"
       :imageUrl="competetion.logo"
       :name="competetion.name"
+      @click="clickHandler(competetion.id)"
     ></card>
   </section>
 </template>
@@ -21,6 +22,12 @@ export default {
       return this.$store.getters.competetions.filter(
         competetion => competetion.code === this.code
       );
+    }
+  },
+  methods: {
+    clickHandler(id) {
+      console.log("Inside competetions", id);
+      this.$router.push(`/competetion/${id}`);
     }
   }
 };

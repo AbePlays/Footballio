@@ -5,6 +5,7 @@
       :key="country.code"
       :imageUrl="country.flag"
       :name="country.name"
+      @click="clickHandler(country.code)"
     ></card>
   </section>
 </template>
@@ -21,6 +22,11 @@ export default {
     },
     countries() {
       return this.$store.getters.countries;
+    }
+  },
+  methods: {
+    clickHandler(code) {
+      this.$router.push(`/countries/${code}`);
     }
   }
 };
