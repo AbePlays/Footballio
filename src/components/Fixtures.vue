@@ -59,9 +59,6 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  width: 90%;
-  margin: 1rem auto;
-
   .matchday {
     padding: 1rem 0;
 

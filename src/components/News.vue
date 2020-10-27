@@ -42,9 +42,6 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  width: 90%;
-  margin: 0 auto;
-
   p {
     margin-top: 1rem;
     color: #888;

@@ -64,11 +64,6 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  max-width: 90%;
-  margin: 0 auto;
-  border: 1px solid #aaa;
-  padding: 1rem;
-
   h1 {
     font-size: 0.9rem;
   }
