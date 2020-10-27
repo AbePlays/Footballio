@@ -1,14 +1,15 @@
 <template>
   <nav>
-    <div class="logo">
-      <h1>Footballio</h1>
-    </div>
-    <div class="links">
-      <ul>
-        <li><router-link to="/countries">League</router-link></li>
-        <li><router-link to="/">Contact Us</router-link></li>
-        <li><router-link to="/auth">Account</router-link></li>
-      </ul>
+    <div class="container">
+      <div class="logo">
+        <router-link to="/">
+          <img src="../../assets/Logo.png" alt="logo" />
+        </router-link>
+      </div>
+      <div class="links">
+        <router-link to="/auth">Log In</router-link>
+        <router-link to="/auth">Log Out</router-link>
+      </div>
     </div>
   </nav>
 </template>
@@ -19,23 +20,39 @@ export default {};
 
 <style lang="scss" scoped>
 nav {
-  height: 4rem;
+  padding: 1rem 0;
   background-color: #ddd;
-  display: flex;
-  align-items: center;
-  padding: 2rem;
-  justify-content: space-between;
 
-  ul {
+  .container {
     display: flex;
-    gap: 1rem;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 80rem;
+    margin: 0 auto;
 
-    li {
-      list-style: none;
+    .logo {
+      img {
+        display: block;
+        height: 3rem;
+      }
+    }
+
+    .links {
+      display: flex;
+      gap: 0 2rem;
 
       a {
         text-decoration: none;
         color: black;
+        padding: 0.3rem 2rem;
+        border: 1px solid black;
+        border-radius: 20px;
+        transition: background-color 200ms ease-in-out;
+
+        &:hover {
+          background-color: black;
+          color: #ddd;
+        }
       }
     }
   }
