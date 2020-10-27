@@ -1,7 +1,7 @@
 <template>
   <section v-if="!isLoading">
     <h1>Season Schedule</h1>
-    <div v-for="n in 10" :key="n" class="matchday">
+    <div v-for="n in matchesInMatchday" :key="n" class="matchday">
       <h1>Matchday {{ n }}</h1>
       <div class="container">
         <div v-for="match in matches[n - 1]" :key="match.id" class="match">
@@ -25,15 +25,18 @@
 
 <script>
 export default {
+  props: ["id"],
   data() {
     return {
       matches: [],
-      isLoading: true
+      isLoading: true,
+      matchesInMatchday: 10
     };
   },
   async mounted() {
+    this.isLoading = true;
     const res = await fetch(
-      `http://api.football-data.org/v2/competitions/2021/matches`,
+      `http://api.football-data.org/v2/competitions/${this.id}/matches`,
       {
         method: "GET",
         headers: {
@@ -43,10 +46,13 @@ export default {
     );
 
     const data = await res.json();
+    if (data.count !== 380) {
+      this.matchesInMatchday = 9;
+    }
 
     var matchday = [];
-    for (var i = 0; i < 380; i++) {
-      if (i !== 0 && i % 10 === 0) {
+    for (var i = 0; i < data.count; i++) {
+      if (i !== 0 && i % this.matchesInMatchday === 0) {
         this.matches.push(matchday);
         matchday = [];
       }

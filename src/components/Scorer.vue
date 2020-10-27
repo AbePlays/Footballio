@@ -21,6 +21,7 @@
 
 <script>
 export default {
+  props: ["id"],
   data() {
     return {
       scorers: [],
@@ -28,8 +29,9 @@ export default {
     };
   },
   async mounted() {
+    this.isLoading = true;
     const res = await fetch(
-      `http://api.football-data.org/v2/competitions/PL/scorers`,
+      `http://api.football-data.org/v2/competitions/${this.id}/scorers`,
       {
         method: "GET",
         headers: {
@@ -38,7 +40,6 @@ export default {
       }
     );
     const data = await res.json();
-    console.log(data.scorers);
     this.scorers = data.scorers;
     this.isLoading = false;
   }

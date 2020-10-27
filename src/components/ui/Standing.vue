@@ -38,6 +38,7 @@
 
 <script>
 export default {
+  props: ["id"],
   data() {
     return {
       clubs: [],
@@ -45,8 +46,9 @@ export default {
     };
   },
   async mounted() {
+    this.isLoading = true;
     const res = await fetch(
-      `http://api.football-data.org/v2/competitions/2021/standings`,
+      `http://api.football-data.org/v2/competitions/${this.id}/standings`,
       {
         method: "GET",
         headers: {

@@ -1,7 +1,12 @@
 <template>
   <div class="container">
     <div class="tabs">
-      <button @click.prevent="clickHandler" id="news" class="active">
+      <button
+        @click.prevent="clickHandler"
+        id="news"
+        class="active"
+        ref="primary"
+      >
         News
       </button>
       <button @click="clickHandler" id="fixtures">Fixtures</button>
@@ -11,9 +16,9 @@
 
     <div class="data">
       <news v-if="activeTab === 'news'"></news>
-      <fixtures v-else-if="activeTab === 'fixtures'"></fixtures>
-      <standing v-else-if="activeTab === 'table'"></standing>
-      <scorer v-else></scorer>
+      <fixtures v-else-if="activeTab === 'fixtures'" :id="id"></fixtures>
+      <standing v-else-if="activeTab === 'table'" :id="id"></standing>
+      <scorer v-else :id="id"></scorer>
     </div>
   </div>
 </template>
@@ -25,11 +30,19 @@ import Scorer from "../Scorer.vue";
 import Fixtures from "../Fixtures.vue";
 
 export default {
+  props: ["id"],
   components: {
     News,
     Standing,
     Scorer,
     Fixtures
+  },
+  watch: {
+    id() {
+      this.clearClasses();
+      this.$refs.primary.classList.add("active");
+      this.activeTab = "news";
+    }
   },
   data() {
     return {

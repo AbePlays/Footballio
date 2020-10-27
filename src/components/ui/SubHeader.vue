@@ -13,7 +13,6 @@
 export default {
   methods: {
     clickHandler(id) {
-      console.log("I was pressed", id);
       this.$router.push(`/competetion/${id}`);
     }
   }

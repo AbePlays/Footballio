@@ -9,7 +9,7 @@
         <h1>{{ header.name }}</h1>
       </div>
     </div>
-    <tabs></tabs>
+    <tabs :id="id"></tabs>
   </section>
   <h1 v-else>Loading...</h1>
 </template>
@@ -22,6 +22,19 @@ export default {
     Tabs
   },
   props: ["id"],
+  methods: {
+    async loadData() {
+      this.isLoading = true;
+      const leagues = this.$store.getters.competitions;
+      leagues.forEach(league => {
+        if (league.id === Number(this.id)) {
+          this.header.imageUrl = league.logo;
+          this.header.name = league.name;
+        }
+      });
+      this.isLoading = false;
+    }
+  },
   data() {
     return {
       header: {
@@ -31,16 +44,13 @@ export default {
       isLoading: true
     };
   },
-  async updated() {
-    const leagues = this.$store.getters.competitions;
-    leagues.forEach(league => {
-      if (league.id === Number(this.id)) {
-        this.header.imageUrl = league.logo;
-        this.header.name = league.name;
-      }
-    });
-    console.log("Done");
-    this.isLoading = false;
+  mounted() {
+    this.loadData();
+  },
+  watch: {
+    id() {
+      this.loadData();
+    }
   }
 };
 </script>
