@@ -11,11 +11,17 @@
         <router-link to="/auth">Log Out</router-link>
       </div>
     </div>
+    <sub-header></sub-header>
   </nav>
 </template>
 
 <script>
-export default {};
+import SubHeader from "./SubHeader.vue";
+export default {
+  components: {
+    SubHeader
+  }
+};
 </script>
 
 <style lang="scss" scoped>

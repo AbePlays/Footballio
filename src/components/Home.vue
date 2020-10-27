@@ -1,17 +1,9 @@
 <template>
-  <section>
-    <the-header></the-header>
-  </section>
+  <section></section>
 </template>
 
 <script>
-import TheHeader from "./ui/Header.vue";
-
-export default {
-  components: {
-    TheHeader
-  }
-};
+export default {};
 </script>
 
 <style lang="scss" scoped>

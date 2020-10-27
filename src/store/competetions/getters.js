@@ -1,5 +1,5 @@
 export default {
-  competetions(state) {
-    return state.competetions;
+  competitions(state) {
+    return state.competitions;
   },
 };

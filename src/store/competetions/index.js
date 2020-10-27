@@ -5,7 +5,7 @@ import getters from "./getters";
 export default {
   state() {
     return {
-      competetions: [
+      competitions: [
         {
           id: 2015,
           name: "Ligue 1",
