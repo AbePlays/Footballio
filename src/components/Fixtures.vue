@@ -73,17 +73,14 @@ section {
     }
 
     .container {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
       gap: 3rem;
 
       .match {
         display: flex;
-        flex: 1;
         align-items: center;
         justify-content: space-between;
-        min-width: 25rem;
         box-shadow: 10px 10px 30px #d9d9d9, -10px -10px 30px #ffffff;
 
         p {

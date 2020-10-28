@@ -25,5 +25,9 @@ export default {
 section {
   width: 90%;
   margin: 1rem auto;
+
+  h1 {
+    font-size: 2rem;
+  }
 }
 </style>

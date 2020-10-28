@@ -1,22 +1,24 @@
 <template>
-  <section v-if="!isLoading">
+  <div v-if="!isLoading" class="section">
     <div class="top">
       <div class="image">
         <img :src="talksport[0].urlToImage" alt="image" />
       </div>
       <div class="data">
-        <h1>{{ talksport[0].title }}</h1>
+        <a :href="talksport[0].url">{{ talksport[0].title }}</a>
         <p>{{ talksport[0].author }}</p>
       </div>
     </div>
     <div class="container">
       <div v-for="news in talksport.splice(1)" :key="news.title" class="news">
-        <img :src="news.urlToImage" alt="image" />
-        <h1>{{ news.title }}</h1>
+        <div class="image">
+          <img :src="news.urlToImage" alt="image" />
+        </div>
+        <a :href="news.url">{{ news.title }}</a>
         <p>{{ news.author }}</p>
       </div>
     </div>
-  </section>
+  </div>
   <h1 v-else>Loading...</h1>
 </template>
 
@@ -40,9 +42,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-section {
+.section {
+  margin-top: 1rem;
   p {
-    margin-top: 1rem;
     color: #888;
   }
 
@@ -63,26 +65,72 @@ section {
       padding: 0 2rem;
       width: 60%;
 
-      h1 {
+      a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
         font-size: 1.5rem;
+      }
+
+      p {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  @media (max-width: 675px) {
+    .top {
+      display: block;
+
+      .image {
+        width: 100%;
+        height: 12rem;
+
+        img {
+          object-fit: cover;
+        }
+      }
+
+      .data {
+        width: 100%;
+        padding: 0;
+
+        a {
+          margin-top: 1rem;
+          font-size: 1rem;
+        }
       }
     }
   }
 
   .container {
     margin: 2rem 0;
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
     gap: 2rem;
-    justify-content: space-between;
 
     .news {
-      min-width: 18rem;
-      flex: 1;
+      display: grid;
+      gap: 1rem 0;
+      grid-template-rows: 12rem 1fr 0.5fr;
+      .image {
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+          border-radius: 5px;
+        }
+      }
 
-      img {
-        width: 100%;
-        border-radius: 5px;
+      a {
+        text-decoration: none;
+        color: black;
+        font-size: 1rem;
+        font-weight: bold;
+      }
+
+      p {
+        align-self: flex-end;
       }
     }
   }

@@ -5,14 +5,16 @@
         <img :src="newsArray[0].image" alt="image" />
       </div>
       <div class="data">
-        <h1>{{ newsArray[0].title }}</h1>
+        <a :href="newsArray[0].url">{{ newsArray[0].title }}</a>
         <p>{{ newsArray[0].source.name }}</p>
       </div>
     </div>
     <div class="container">
       <div v-for="news in newsArray.splice(1)" :key="news.title" class="news">
-        <img :src="news.image" alt="image" />
-        <h1>{{ news.title }}</h1>
+        <div class="image">
+          <img :src="news.image" alt="image" />
+        </div>
+        <a :href="news.url">{{ news.title }}</a>
         <p>{{ news.source.name }}</p>
       </div>
     </div>
@@ -62,7 +64,6 @@ export default {
 <style lang="scss" scoped>
 section {
   p {
-    margin-top: 1rem;
     color: #888;
   }
 
@@ -83,26 +84,71 @@ section {
       padding: 0 2rem;
       width: 60%;
 
-      h1 {
+      a {
         font-size: 1.5rem;
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+      }
+
+      p {
+        margin-top: 1rem;
+      }
+    }
+  }
+
+  @media (max-width: 675px) {
+    .top {
+      display: block;
+
+      .image {
+        width: 100%;
+        height: 12rem;
+
+        img {
+          object-fit: cover;
+        }
+      }
+
+      .data {
+        margin-top: 1rem;
+        width: 100%;
+        padding: 0;
+
+        a {
+          font-size: 1rem;
+        }
       }
     }
   }
 
   .container {
     margin: 2rem 0;
-    display: flex;
-    flex-wrap: wrap;
     gap: 2rem;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
 
     .news {
-      min-width: 18rem;
-      flex: 1;
+      display: grid;
+      gap: 1rem 0;
+      grid-template-rows: 12rem 1fr 0.5fr;
+      .image {
+        img {
+          object-fit: cover;
+          width: 100%;
+          height: 100%;
+          border-radius: 5px;
+        }
+      }
 
-      img {
-        width: 100%;
-        border-radius: 5px;
+      a {
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+      }
+
+      p {
+        align-self: flex-end;
       }
     }
   }
