@@ -19,7 +19,7 @@
       </div>
     </div>
   </section>
-  <h1 v-else>Loading...</h1>
+  <loader v-else></loader>
 </template>
 
 <script>
@@ -131,7 +131,7 @@ section {
     .news {
       display: grid;
       gap: 1rem 0;
-      grid-template-rows: 12rem 1fr 0.5fr;
+      grid-template-rows: 12rem 1fr 0.3fr;
       .image {
         img {
           object-fit: cover;

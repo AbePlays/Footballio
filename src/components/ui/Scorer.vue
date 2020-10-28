@@ -16,7 +16,7 @@
       <p class="goals">{{ scorer.numberOfGoals }}</p>
     </div>
   </section>
-  <h1 v-else>Loading...</h1>
+  <loader v-else></loader>
 </template>
 
 <script>

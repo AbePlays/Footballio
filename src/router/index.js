@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Auth from "../components/auth/Auth.vue";
 import Home from "../components/Home.vue";
-import Test from "../components/Test.vue";
+import Test from "../components/Content.vue";
 
 const routes = [
   {
@@ -13,7 +13,7 @@ const routes = [
     component: Auth,
   },
   {
-    path: "/competetion/:id",
+    path: "/competition/:id",
     component: Test,
     props: true,
   },

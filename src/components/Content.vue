@@ -1,5 +1,5 @@
 <template>
-  <section v-if="!isLoading">
+  <section>
     <div class="header">
       <div class="image">
         <img :src="header.imageUrl" alt="logo" />
@@ -11,7 +11,6 @@
     </div>
     <tabs :id="id"></tabs>
   </section>
-  <h1 v-else>Loading...</h1>
 </template>
 
 <script>
@@ -23,8 +22,7 @@ export default {
   },
   props: ["id"],
   methods: {
-    async loadData() {
-      this.isLoading = true;
+    loadData() {
       const leagues = this.$store.getters.competitions;
       leagues.forEach(league => {
         if (league.id === Number(this.id)) {
@@ -32,7 +30,6 @@ export default {
           this.header.name = league.name;
         }
       });
-      this.isLoading = false;
     }
   },
   data() {
@@ -40,8 +37,7 @@ export default {
       header: {
         imageUrl: null,
         name: null
-      },
-      isLoading: true
+      }
     };
   },
   mounted() {
@@ -85,6 +81,22 @@ section {
     .data {
       h1 {
         font-size: 2rem;
+      }
+    }
+  }
+
+  @media (max-width: 675px) {
+    .header {
+      justify-content: center;
+      .image {
+        width: 7rem;
+        height: 7rem;
+      }
+
+      .data {
+        h1 {
+          font-size: 1.5rem;
+        }
       }
     }
   }

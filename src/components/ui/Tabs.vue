@@ -26,8 +26,8 @@
 <script>
 import News from "./News.vue";
 import Standing from "./Standing.vue";
-import Scorer from "../Scorer.vue";
-import Fixtures from "../Fixtures.vue";
+import Scorer from "./Scorer.vue";
+import Fixtures from "./Fixtures.vue";
 
 export default {
   props: ["id"],

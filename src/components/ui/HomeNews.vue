@@ -19,7 +19,7 @@
       </div>
     </div>
   </div>
-  <h1 v-else>Loading...</h1>
+  <loader v-else></loader>
 </template>
 
 <script>

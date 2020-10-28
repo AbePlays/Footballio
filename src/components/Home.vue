@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import HomeNews from "./HomeNews.vue";
+import HomeNews from "./ui/HomeNews.vue";
 
 export default {
   components: {
@@ -14,8 +14,7 @@ export default {
   },
   data() {
     return {
-      newsArray: [],
-      isLoading: true
+      newsArray: []
     };
   }
 };

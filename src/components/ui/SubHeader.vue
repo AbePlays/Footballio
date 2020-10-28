@@ -13,7 +13,7 @@
 export default {
   methods: {
     clickHandler(id) {
-      this.$router.push(`/competetion/${id}`);
+      this.$router.push(`/competition/${id}`);
     }
   }
 };
