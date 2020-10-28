@@ -1,7 +1,5 @@
 <template>
   <section v-if="!isLoading">
-    <h1>Standings</h1>
-
     <div class="info">
       <div class="left">
         <h1># Team</h1>
@@ -15,7 +13,6 @@
         <p>PTS</p>
       </div>
     </div>
-
     <div class="data" v-for="(club, index) in clubs" :key="club.id">
       <div class="left">
         <p>{{ index + 1 }}</p>
@@ -66,60 +63,86 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  h1 {
-    font-size: 0.9rem;
-  }
-
-  p {
-    width: 3rem;
-    text-align: center;
-    font-size: 0.9rem;
-  }
-
-  .header {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-
-    img {
-      margin-right: 1rem;
-    }
-  }
-
   .info {
     display: flex;
     justify-content: space-between;
-    color: #aaa;
-    margin-top: 1rem;
-
-    .left {
-      margin-left: 1rem;
-    }
+    gap: 0 2rem;
 
     .right {
       display: flex;
-      gap: 1rem;
+      gap: 0 1rem;
+      p {
+        text-align: center;
+        width: 2rem;
+      }
     }
   }
 
   .data {
-    padding-top: 1rem;
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
+    gap: 0 2rem;
+    padding: 1rem 0;
+
+    @media (max-width: 700px) {
+      gap: 0 0.5rem;
+    }
 
     .left {
       display: flex;
 
+      p {
+        text-align: center;
+        width: 1.3rem;
+
+        @media (max-width: 700px) {
+          font-size: 0.8rem;
+        }
+      }
+
       img {
+        object-fit: contain;
         width: 1rem;
         margin: 0 1rem;
+
+        @media (max-width: 700px) {
+          margin: 0 0.5rem;
+          display: none;
+        }
+      }
+
+      h1 {
+        @media (max-width: 700px) {
+          font-size: 0.8rem;
+          margin-left: 0.5rem;
+        }
       }
     }
 
     .right {
       display: flex;
-      gap: 1rem;
+      gap: 0 1rem;
+
+      @media (max-width: 700px) {
+        gap: 0;
+      }
+
+      p {
+        text-align: center;
+        width: 2rem;
+
+        @media (max-width: 700px) {
+          font-size: 0.8rem;
+        }
+      }
+    }
+
+    &:nth-child(odd) {
+      background-color: white;
+    }
+
+    &:nth-child(even) {
+      background-color: #ddd;
     }
   }
 }
