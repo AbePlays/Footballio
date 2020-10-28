@@ -1,14 +1,11 @@
 <template>
   <section v-if="!isLoading">
-    <h1>Top Goal Scorers</h1>
-
     <div class="header">
       <h1 class="name">Name</h1>
       <h1 class="nationality">Nationality</h1>
       <h1 class="club">Club</h1>
       <h1 class="goals">Goals</h1>
     </div>
-
     <div class="scorers" v-for="scorer in scorers" :key="scorer.player.id">
       <p class="name">{{ scorer.player.name }}</p>
       <p class="nationality">{{ scorer.player.nationality }}</p>
@@ -48,23 +45,43 @@ export default {
 
 <style lang="scss" scoped>
 section {
-  h1 {
-    margin-bottom: 1rem;
-  }
-
   .header {
-    text-align: center;
     display: flex;
     justify-content: space-between;
+    gap: 0 1rem;
+    padding-left: 0.5rem;
+
+    h1 {
+      font-size: 1.1rem;
+      text-align: left;
+    }
   }
 
   .scorers {
-    text-align: center;
     display: flex;
     justify-content: space-between;
+    gap: 0 1rem;
+    padding-left: 0.5rem;
+
+    &:nth-child(odd) {
+      background-color: white;
+    }
+
+    &:nth-child(even) {
+      background-color: #ddd;
+    }
 
     p {
       padding: 1rem 0;
+      text-align: left;
+    }
+
+    .goals {
+      transform: translateX(1rem);
+
+      @media (max-width: 500px) {
+        transform: translateX(0.5rem);
+      }
     }
   }
 }
