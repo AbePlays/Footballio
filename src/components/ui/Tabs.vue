@@ -15,7 +15,7 @@
     </div>
 
     <div class="data">
-      <news v-if="activeTab === 'news'"></news>
+      <news v-if="activeTab === 'news'" :id="id"></news>
       <fixtures v-else-if="activeTab === 'fixtures'" :id="id"></fixtures>
       <standing v-else-if="activeTab === 'table'" :id="id"></standing>
       <scorer v-else :id="id"></scorer>
@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import News from "../News.vue";
+import News from "./News.vue";
 import Standing from "./Standing.vue";
 import Scorer from "../Scorer.vue";
 import Fixtures from "../Fixtures.vue";

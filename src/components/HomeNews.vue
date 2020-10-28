@@ -33,7 +33,6 @@ export default {
       `https://newsapi.org/v2/top-headlines?sources=talksport&apiKey=${process.env.VUE_APP_NEWS_KEY}`
     );
     const data = await res.json();
-    console.log(data);
     this.talksport = data.articles;
     this.isLoading = false;
   }

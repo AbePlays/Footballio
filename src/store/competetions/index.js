@@ -12,6 +12,7 @@ export default {
           type: "League",
           logo: "https://media.api-sports.io/football/leagues/61.png",
           code: "FRA",
+          newsCode: "fr",
           flag: "https://media.api-sports.io/flags/fr.svg",
         },
         {
@@ -20,6 +21,7 @@ export default {
           type: "League",
           logo: "https://media.api-sports.io/football/leagues/62.png",
           code: "FRA",
+          newsCode: "fr",
           flag: "https://media.api-sports.io/flags/fr.svg",
         },
         {
@@ -28,6 +30,7 @@ export default {
           type: "League",
           logo: "https://media.api-sports.io/football/leagues/39.png",
           code: "ENG",
+          newsCode: "gb",
           flag: "https://media.api-sports.io/flags/gb.svg",
         },
         {
@@ -36,6 +39,7 @@ export default {
           type: "League",
           logo: "https://media.api-sports.io/football/leagues/40.png",
           code: "ENG",
+          newsCode: "gb",
           flag: "https://media.api-sports.io/flags/gb.svg",
         },
         {
@@ -44,6 +48,7 @@ export default {
           type: "Cup",
           logo: "https://media.api-sports.io/football/leagues/46.png",
           code: "ENG",
+          newsCode: "gb",
           flag: "https://media.api-sports.io/flags/gb.svg",
         },
         {
@@ -52,6 +57,7 @@ export default {
           type: "Cup",
           logo: "https://media.api-sports.io/football/leagues/45.png",
           code: "ENG",
+          newsCode: "gb",
           flag: "https://media.api-sports.io/flags/gb.svg",
         },
         {
@@ -60,6 +66,7 @@ export default {
           type: "League",
           logo: "https://media.api-sports.io/football/leagues/78.png",
           code: "DEU",
+          newsCode: "de",
           flag: "https://media.api-sports.io/flags/de.svg",
         },
         {
@@ -68,6 +75,7 @@ export default {
           type: "League",
           logo: "https://media.api-sports.io/football/leagues/79.png",
           code: "DEU",
+          newsCode: "de",
           flag: "https://media.api-sports.io/flags/de.svg",
         },
         {
@@ -76,6 +84,7 @@ export default {
           type: "Cup",
           logo: "https://media.api-sports.io/football/leagues/81.png",
           code: "DEU",
+          newsCode: "de",
           flag: "https://media.api-sports.io/flags/de.svg",
         },
         {
@@ -84,6 +93,7 @@ export default {
           type: "League",
           logo: "https://media.api-sports.io/football/leagues/135.png",
           code: "ITA",
+          newsCode: "it",
           flag: "https://media.api-sports.io/flags/it.svg",
         },
         {
@@ -92,6 +102,7 @@ export default {
           type: "League",
           logo: "https://media.api-sports.io/football/leagues/136.png",
           code: "ITA",
+          newsCode: "it",
           flag: "https://media.api-sports.io/flags/it.svg",
         },
         {
@@ -100,6 +111,7 @@ export default {
           type: "Cup",
           logo: "https://media.api-sports.io/football/leagues/137.png",
           code: "ITA",
+          newsCode: "it",
           flag: "https://media.api-sports.io/flags/it.svg",
         },
         {
@@ -108,6 +120,7 @@ export default {
           type: "League",
           logo: "https://media.api-sports.io/football/leagues/88.png",
           code: "NLD",
+          newsCode: "nl",
           flag: "https://media.api-sports.io/flags/nl.svg",
         },
         {
@@ -116,6 +129,7 @@ export default {
           type: "League",
           logo: "https://media.api-sports.io/football/leagues/140.png",
           code: "ESP",
+          newsCode: "es",
           flag: "https://media.api-sports.io/flags/es.svg",
         },
         {
@@ -124,6 +138,7 @@ export default {
           type: "League",
           logo: "https://media.api-sports.io/football/leagues/141.png",
           code: "ESP",
+          newsCode: "es",
           flag: "https://media.api-sports.io/flags/es.svg",
         },
       ],
