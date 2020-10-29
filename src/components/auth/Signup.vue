@@ -2,14 +2,24 @@
   <div class="form">
     <div class="container" v-if="showForm">
       <img src="../../assets/back.svg" alt="back-button" @click="switchForm" />
-      <form>
+      <form @submit.prevent="submitForm">
         <div class="form-control">
           <label for="name">Name</label>
-          <input type="text" id="name" placeholder="John Doe" />
+          <input
+            type="text"
+            id="name"
+            placeholder="John Doe"
+            v-model.trim="name"
+          />
         </div>
         <div class="form-control">
           <label for="email">Email</label>
-          <input type="email" id="email" placeholder="example@example.com" />
+          <input
+            type="email"
+            id="email"
+            placeholder="example@example.com"
+            v-model.trim="email"
+          />
         </div>
         <div class="form-control">
           <label for="password">Password</label>
@@ -17,6 +27,7 @@
             type="password"
             id="password"
             placeholder="Atleast 6 characters long"
+            v-model.trim="password"
           />
         </div>
         <div class="form-control">
@@ -25,9 +36,10 @@
             type="password"
             id="confirmPassword"
             placeholder="Atleast 6 characters long"
+            v-model.trim="confirmPassword"
           />
         </div>
-        <button type="submit">Sign up</button>
+        <button>Sign up</button>
       </form>
     </div>
     <subscription v-else @switchToForm="switchForm"></subscription>
@@ -44,7 +56,12 @@ export default {
   },
   data() {
     return {
-      showForm: false
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+      showForm: false,
+      chosenPlan: 2
     };
   },
   emits: ["switch"],
@@ -52,8 +69,30 @@ export default {
     switchAuth() {
       this.$emit("switch");
     },
-    switchForm() {
+    switchForm(plan) {
+      this.chosenPlan = plan;
       this.showForm = !this.showForm;
+    },
+    submitForm() {
+      if (
+        this.name.length > 3 &&
+        this.verifyEmail(this.email) &&
+        this.password.length >= 6 &&
+        this.password === this.confirmPassword
+      ) {
+        this.$store.dispatch("signup", {
+          email: this.email,
+          password: this.password,
+          name: this.name,
+          chosenPlan: this.chosenPlan
+        });
+      } else {
+        alert("Invalid Credentials");
+      }
+    },
+    verifyEmail(text) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(text);
     }
   }
 };

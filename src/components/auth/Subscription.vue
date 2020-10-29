@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="trial">
-      <p @click="goToForm">Sign up with 30 days trial</p>
+      <p @click="selectTrial">Sign up with 30 days trial</p>
     </div>
     <p>----- OR -----</p>
     <div class="subs">
@@ -10,13 +10,13 @@
         :duration="`Annually`"
         id="annually"
         class="active"
-        @click="switchClasses"
+        @click="selectAnnual"
       ></card>
       <card
         :money="`$9.99`"
         :duration="`Monthly`"
         id="monthly"
-        @click="switchClasses"
+        @click="selectMonth"
       ></card>
     </div>
 
@@ -34,22 +34,31 @@ export default {
   },
   data() {
     return {
+      chosenPlan: 2,
       activeSub: "annually"
     };
   },
   methods: {
-    switchClasses(event) {
-      this.clearClasses();
-      event.target.classList.add("active");
+    selectTrial() {
+      this.chosenPlan = 1;
+      this.goToForm();
     },
-    clearClasses() {
-      const annualCard = document.getElementById("annually");
+    selectAnnual() {
+      this.chosenPlan = 2;
       const monthCard = document.getElementById("monthly");
-      annualCard.classList.remove("active");
       monthCard.classList.remove("active");
+      const annualCard = document.getElementById("annually");
+      annualCard.classList.add("active");
+    },
+    selectMonth() {
+      this.chosenPlan = 3;
+      const monthCard = document.getElementById("monthly");
+      monthCard.classList.add("active");
+      const annualCard = document.getElementById("annually");
+      annualCard.classList.remove("active");
     },
     goToForm() {
-      this.$emit("switch-to-form");
+      this.$emit("switch-to-form", this.chosenPlan);
     }
   }
 };

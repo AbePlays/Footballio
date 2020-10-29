@@ -1,10 +1,15 @@
 <template>
   <div class="form">
     <h1>Login</h1>
-    <form>
+    <form @submit.prevent="submitForm">
       <div class="form-control">
         <label for="email">Email</label>
-        <input type="email" id="email" placeholder="example@example.com" />
+        <input
+          type="email"
+          id="email"
+          placeholder="example@example.com"
+          v-model.trim="email"
+        />
       </div>
       <div class="form-control">
         <label for="password">Password</label>
@@ -12,13 +17,12 @@
           type="password"
           id="password"
           placeholder="Atleast 6 characters long"
+          v-model.trim="password"
         />
       </div>
       <a href="#">Forgot Password?</a>
-
-      <button type="submit">Log in</button>
+      <button>Log in</button>
     </form>
-
     <p>Don't have an account?<a href="#" @click="switchAuth"> Sign up</a></p>
   </div>
 </template>
@@ -26,9 +30,29 @@
 <script>
 export default {
   emits: ["switch"],
+  data() {
+    return {
+      email: "",
+      password: ""
+    };
+  },
   methods: {
     switchAuth() {
       this.$emit("switch");
+    },
+    submitForm() {
+      if (this.verifyEmail(this.email) && this.password.length >= 6) {
+        this.$store.dispatch("signin", {
+          email: this.email,
+          password: this.password
+        });
+      } else {
+        alert("Invalid Credentials");
+      }
+    },
+    verifyEmail(text) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(text);
     }
   }
 };
