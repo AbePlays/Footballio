@@ -1,16 +1,9 @@
 <template>
-  <the-header></the-header>
   <router-view></router-view>
 </template>
 
 <script>
-import TheHeader from "./components/ui/Header";
-
-export default {
-  components: {
-    TheHeader
-  }
-};
+export default {};
 </script>
 
 <style>
