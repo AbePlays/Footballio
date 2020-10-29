@@ -71,6 +71,10 @@ export default {
     cursor: pointer;
     transition: background-color 300ms ease-in-out;
 
+    @media (max-width: 820px) {
+      width: 20rem;
+    }
+
     &:hover {
       background-color: #555;
     }

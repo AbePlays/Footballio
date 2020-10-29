@@ -36,6 +36,7 @@ export default {
 
 <style lang="scss" scoped>
 .form {
+  background-color: #fff;
   width: fit-content;
   padding: 2rem;
   border-radius: 5px;
@@ -61,6 +62,10 @@ export default {
     width: 25rem;
     height: 2.5rem;
     padding: 1rem;
+
+    @media (max-width: 820px) {
+      width: 20rem;
+    }
   }
 
   a {

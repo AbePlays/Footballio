@@ -5,7 +5,9 @@
       <h1 v-else>Create Your Account</h1>
       <p v-if="isLoginForm">Log in to continue</p>
       <p v-else>Sign up and get started</p>
-      <img src="../../assets/Signin.png" alt="logo" />
+      <div class="image">
+        <img src="../../assets/Signin.png" alt="logo" />
+      </div>
     </div>
     <div class="right">
       <signin v-if="isLoginForm" @switch="switchAuth"></signin>
@@ -39,17 +41,25 @@ export default {
 <style lang="scss" scoped>
 section {
   display: flex;
-  align-items: center;
-  height: 100vh;
+  min-height: 100vh;
+
+  @media (max-width: 820px) {
+    display: block;
+    background-color: #ccc;
+  }
 
   .left {
     width: 40%;
-    height: 100%;
+    padding: 1rem;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    text-align: center;
+    align-items: center;
     background-color: #ccc;
+
+    @media (max-width: 820px) {
+      width: 100%;
+    }
 
     h1 {
       font-size: 2.5rem;
@@ -60,17 +70,31 @@ section {
       color: #888;
       margin-bottom: 2rem;
     }
+    .image {
+      max-width: 30rem;
+      img {
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
+      }
 
-    img {
-      width: 30rem;
+      @media (max-width: 820px) {
+        width: 20rem;
+      }
     }
   }
 
   .right {
+    padding: 1rem;
     width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    @media (max-width: 820px) {
+      width: 100%;
+    }
   }
 }
 </style>
