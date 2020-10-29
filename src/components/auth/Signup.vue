@@ -1,43 +1,59 @@
 <template>
   <div class="form">
-    <h1>Sign up</h1>
-    <form>
-      <div class="form-control">
-        <label for="name">Name</label>
-        <input type="text" id="name" placeholder="John Doe" />
-      </div>
-      <div class="form-control">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="example@example.com" />
-      </div>
-      <div class="form-control">
-        <label for="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          placeholder="Atleast 6 characters long"
-        />
-      </div>
-      <div class="form-control">
-        <label for="confirmPassword">Confirm Password</label>
-        <input
-          type="password"
-          id="confirmPassword"
-          placeholder="Atleast 6 characters long"
-        />
-      </div>
-      <button type="submit">Sign up</button>
-    </form>
+    <div class="container" v-if="showForm">
+      <img src="../../assets/back.svg" alt="back-button" @click="switchForm" />
+      <form>
+        <div class="form-control">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="John Doe" />
+        </div>
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="example@example.com" />
+        </div>
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            placeholder="Atleast 6 characters long"
+          />
+        </div>
+        <div class="form-control">
+          <label for="confirmPassword">Confirm Password</label>
+          <input
+            type="password"
+            id="confirmPassword"
+            placeholder="Atleast 6 characters long"
+          />
+        </div>
+        <button type="submit">Sign up</button>
+      </form>
+    </div>
+    <subscription v-else @switchToForm="switchForm"></subscription>
     <p>Already have an account?<a href="#" @click="switchAuth"> Log in</a></p>
   </div>
 </template>
 
 <script>
+import Subscription from "./Subscription.vue";
+
 export default {
+  components: {
+    Subscription
+  },
+  data() {
+    return {
+      showForm: false
+    };
+  },
   emits: ["switch"],
   methods: {
     switchAuth() {
       this.$emit("switch");
+    },
+    switchForm() {
+      this.showForm = !this.showForm;
     }
   }
 };
@@ -49,6 +65,12 @@ export default {
   padding: 2rem;
   border-radius: 5px;
   box-shadow: 0 0 2px grey;
+
+  img {
+    width: 2rem;
+    margin-bottom: 1rem;
+    cursor: pointer;
+  }
 
   h1 {
     font-size: 2rem;
