@@ -1,9 +1,23 @@
 <template>
+  <the-header v-if="showHeader()"></the-header>
   <router-view></router-view>
 </template>
 
 <script>
-export default {};
+import TheHeader from "./components/ui/Header.vue";
+
+export default {
+  components: {
+    TheHeader
+  },
+  methods: {
+    showHeader() {
+      const route = this.$route.fullPath;
+      console.log(route);
+      return route !== "/";
+    }
+  }
+};
 </script>
 
 <style>

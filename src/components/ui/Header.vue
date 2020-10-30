@@ -7,8 +7,7 @@
         </router-link>
       </div>
       <div class="links">
-        <router-link to="/auth">Log In</router-link>
-        <router-link to="/auth">Log Out</router-link>
+        <router-link to="/auth" @click="signOut">Log Out</router-link>
       </div>
     </div>
     <sub-header></sub-header>
@@ -20,6 +19,12 @@ import SubHeader from "./SubHeader.vue";
 export default {
   components: {
     SubHeader
+  },
+  methods: {
+    signOut() {
+      this.$store.dispatch("setUser");
+      this.$router.replace("/");
+    }
   }
 };
 </script>

@@ -40,12 +40,13 @@ export default {
     switchAuth() {
       this.$emit("switch");
     },
-    submitForm() {
+    async submitForm() {
       if (this.verifyEmail(this.email) && this.password.length >= 6) {
-        this.$store.dispatch("signin", {
+        await this.$store.dispatch("signin", {
           email: this.email,
           password: this.password
         });
+        this.$router.replace("/home");
       } else {
         alert("Invalid Credentials");
       }

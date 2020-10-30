@@ -60,4 +60,9 @@ export default {
       localId: data.localId,
     });
   },
+  signOut(context) {
+    context.commit("setUser", {
+      localId: null,
+    });
+  },
 };
