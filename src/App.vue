@@ -1,5 +1,5 @@
 <template>
-  <the-header v-if="showHeader()"></the-header>
+  <the-header v-if="showHeader"></the-header>
   <router-view></router-view>
 </template>
 
@@ -10,7 +10,7 @@ export default {
   components: {
     TheHeader
   },
-  methods: {
+  computed: {
     showHeader() {
       const route = this.$route.fullPath;
       return route !== "/";

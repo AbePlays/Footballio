@@ -11,11 +11,6 @@ import HomeNews from "./ui/HomeNews.vue";
 export default {
   components: {
     HomeNews
-  },
-  data() {
-    return {
-      newsArray: []
-    };
   }
 };
 </script>

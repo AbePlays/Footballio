@@ -22,9 +22,14 @@ export default {
 <style lang="scss" scoped>
 section {
   display: flex;
+  flex-wrap: wrap;
   max-width: 80rem;
   margin: 0.5rem auto 0;
-  gap: 0 3rem;
+  gap: 1rem 3rem;
+
+  @media (max-width: 700px) {
+    gap: 0.5rem 1rem;
+  }
 
   p {
     cursor: pointer;

@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Auth from "../components/auth/Auth.vue";
 import Home from "../components/Home.vue";
-import Test from "../components/Content.vue";
+import Content from "../components/Content.vue";
 import store from "../store/index";
 
 const routes = [
@@ -15,7 +15,7 @@ const routes = [
   },
   {
     path: "/competition/:id",
-    component: Test,
+    component: Content,
     props: true,
   },
 ];

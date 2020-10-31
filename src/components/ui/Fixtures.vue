@@ -1,6 +1,5 @@
 <template>
   <section v-if="!isLoading">
-    <h1>Season Schedule</h1>
     <div v-for="n in matchesInMatchday" :key="n" class="matchday">
       <h1>Matchday {{ n }}</h1>
       <div class="container">
@@ -69,6 +68,7 @@ section {
     padding: 1rem 0;
 
     h1 {
+      font-size: 1.1rem;
       margin-bottom: 1rem;
     }
 

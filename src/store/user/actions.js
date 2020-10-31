@@ -75,14 +75,14 @@ export default {
         break;
       }
     }
+
+    date = new Date(date);
     const currentDate = new Date();
     console.log(date.getTime() > currentDate.getTime());
 
     context.commit("setUser", {
       localId: data.localId,
     });
-
-    throw new Error("Bruh");
   },
   signOut(context) {
     context.commit("setUser", {

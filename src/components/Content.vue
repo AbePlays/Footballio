@@ -65,7 +65,7 @@ section {
       width: 10rem;
       height: 10rem;
       border: 1px solid #ddd;
-      padding: 1.5rem;
+      padding: 2rem;
       border-radius: 50%;
       display: flex;
       justify-content: center;

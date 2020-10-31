@@ -7,7 +7,7 @@
         </router-link>
       </div>
       <div class="links">
-        <router-link to="/auth" @click="signOut">Log Out</router-link>
+        <router-link to="/" replace @click="signOut">Log Out</router-link>
       </div>
     </div>
     <sub-header></sub-header>
@@ -22,8 +22,7 @@ export default {
   },
   methods: {
     signOut() {
-      this.$store.dispatch("setUser");
-      this.$router.replace("/");
+      this.$store.dispatch("signOut");
     }
   }
 };
@@ -31,7 +30,7 @@ export default {
 
 <style lang="scss" scoped>
 nav {
-  padding: 1rem 0;
+  padding: 1rem;
   background-color: #ddd;
 
   .container {
