@@ -26,11 +26,9 @@ const router = createRouter({
 });
 
 router.beforeEach((to, _, next) => {
-  console.log(store.getters.isAuthenticated);
   if (store.getters.isAuthenticated) {
     next();
   } else {
-    console.log(to.fullPath);
     if (to.fullPath === "/") {
       if (store.getters.isAuthenticated) {
         next("/home");

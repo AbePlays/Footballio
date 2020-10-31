@@ -13,7 +13,6 @@ export default {
   methods: {
     showHeader() {
       const route = this.$route.fullPath;
-      console.log(route);
       return route !== "/";
     }
   }
